@@ -7,5 +7,5 @@ spec:
     requests:
       storage: 100M
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: nfs-client
