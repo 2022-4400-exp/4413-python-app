@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from datetime import datetime
 import os
+import csv
 
 
 app = Flask(__name__)
@@ -9,12 +10,12 @@ app = Flask(__name__)
 def index():
     try:
         with open('/var/python-app/data.txt') as f:
-            lines = f.read()
+            lines = list(csv.reader(f))
     
     except IOError:
         lines = ''
 
-    return render_template('index.html', data=lines.split('\n'))
+    return render_template('index.html', data=lines)
 
 @app.route('/', methods=["POST"])
 def index_post():
@@ -24,7 +25,7 @@ def index_post():
     time = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
 
     with open('/var/python-app/data.txt','a') as f:
-        f.write(f"{name} 「{msg}」 at {time}\n")
+        f.write(f"{time},{name},{msg}\n")
 
     return redirect("/")
 
