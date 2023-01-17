@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: python-app
-          image: cffnpwr/python-app:aeee6e7fd51a2fe33107844a44c1c91eeab007ba
+          image: cffnpwr/python-app:f8109e970f5ab9ad2ab2e8c3ebb17263e8568d6b
           resources:
             limits:
               memory: "128Mi"
