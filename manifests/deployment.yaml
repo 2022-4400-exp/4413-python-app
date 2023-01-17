@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app
+spec:
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+        - name: python-app
+          image: cffnpwr/python-app
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - mountPath: /var/python-app
+              name: python-app-data
+      volumes:
+        - name: python-app-data
+          persistentVolumeClaim:
+            claimName: python-app-data-pvc
