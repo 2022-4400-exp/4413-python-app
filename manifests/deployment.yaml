@@ -28,4 +28,4 @@ spec:
       volumes:
         - name: python-app-data
           persistentVolumeClaim:
-            claimName: share/python-app-data-share-pvc
+            claimName: python-app-data-pvc

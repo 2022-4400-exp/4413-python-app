@@ -9,16 +9,3 @@ spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: nfs-client
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  namespace: share
-  name: python-app-data-share-pvc
-spec:
-  resources:
-    requests:
-      storage: 100M
-  accessModes:
-    - ReadWriteMany
-  storageClassName: nfs-client
