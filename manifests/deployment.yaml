@@ -10,7 +10,6 @@ spec:
       app: python-app
   template:
     metadata:
-      namespace: share
       labels:
         app: python-app
     spec:
@@ -29,4 +28,4 @@ spec:
       volumes:
         - name: python-app-data
           persistentVolumeClaim:
-            claimName: python-app-data-share-pvc
+            claimName: share/python-app-data-share-pvc
