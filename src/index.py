@@ -21,10 +21,10 @@ def index_post():
 
     name = request.form["name"]
     msg = request.form["msg"]
-    time = datetime.now()
+    time = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
 
     with open('/var/python-app/data.txt','a') as f:
-        f.write(f"{time} {name} {msg}\n")
+        f.write(f"{name} 「{msg}」 at {time}\n")
 
     return redirect("/")
 
